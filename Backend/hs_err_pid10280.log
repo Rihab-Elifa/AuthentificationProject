@@ -1,0 +1,223 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3530), pid=10280, tid=13156
+#
+# JRE version:  (18.0.2.1+1) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (18.0.2.1+1-1, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\lib\idea_rt.jar=60346:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 com.example.AppEcommerce.AppEcommerceApplicationTests
+
+Host: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 18362 (10.0.18362.1500)
+Time: Sat Apr  1 15:58:46 2023 Afr. centrale Ouest elapsed time: 0.022974 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002bff45a4ec0):  JavaThread "Unknown thread" [_thread_in_vm, id=13156, stack(0x000000c6d7500000,0x000000c6d7600000)]
+
+Stack: [0x000000c6d7500000,0x000000c6d7600000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6993aa]
+V  [jvm.dll+0x7f46dd]
+V  [jvm.dll+0x7f5fee]
+V  [jvm.dll+0x7f66a3]
+V  [jvm.dll+0x25cf1f]
+V  [jvm.dll+0x6962f9]
+V  [jvm.dll+0x68ae2a]
+V  [jvm.dll+0x32255b]
+V  [jvm.dll+0x329f36]
+V  [jvm.dll+0x37eade]
+V  [jvm.dll+0x37ed0f]
+V  [jvm.dll+0x2fa2da]
+V  [jvm.dll+0x2fb33d]
+V  [jvm.dll+0x7c3310]
+V  [jvm.dll+0x38be61]
+V  [jvm.dll+0x7a2023]
+V  [jvm.dll+0x40dc3f]
+V  [jvm.dll+0x40f611]
+C  [jli.dll+0x526b]
+C  [ucrtbase.dll+0x210b2]
+C  [KERNEL32.DLL+0x17c24]
+C  [ntdll.dll+0x6d721]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff88a26e550, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002bff4603580 WorkerThread "GC Thread#0" [stack: 0x000000c6d7600000,0x000000c6d7700000] [id=12280]
+  0x000002bff4614130 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000c6d7700000,0x000000c6d7800000] [id=3016]
+  0x000002bff46162d0 WorkerThread "G1 Conc#0" [stack: 0x000000c6d7800000,0x000000c6d7900000] [id=14504]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff889a9a877]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002bff459f6d0] Heap_lock - owner thread: 0x000002bff45a4ec0
+
+Heap address: 0x0000000081c00000, size: 2020 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000081c00000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff889e81839]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.008 Loaded shared library C:\Program Files\Java\jdk-18.0.2.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6d0670000 - 0x00007ff6d0680000 	C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe
+0x00007ff8f2520000 - 0x00007ff8f2710000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff8f0a00000 - 0x00007ff8f0ab2000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff8ef560000 - 0x00007ff8ef805000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff8ef9d0000 - 0x00007ff8efaca000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff8ddcb0000 - 0x00007ff8ddcca000 	C:\Program Files\Java\jdk-18.0.2.1\bin\VCRUNTIME140.dll
+0x00007ff8ddcd0000 - 0x00007ff8ddce8000 	C:\Program Files\Java\jdk-18.0.2.1\bin\jli.dll
+0x00007ff8f1cf0000 - 0x00007ff8f1d93000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff8f14b0000 - 0x00007ff8f154e000 	C:\Windows\System32\msvcrt.dll
+0x00007ff8f1ed0000 - 0x00007ff8f1f67000 	C:\Windows\System32\sechost.dll
+0x00007ff8f1db0000 - 0x00007ff8f1ecf000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff8f05d0000 - 0x00007ff8f0764000 	C:\Windows\System32\USER32.dll
+0x00007ff8ef8f0000 - 0x00007ff8ef911000 	C:\Windows\System32\win32u.dll
+0x00007ff8ee1c0000 - 0x00007ff8ee444000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1556_none_9e7e372fe45e41d5\COMCTL32.dll
+0x00007ff8f2170000 - 0x00007ff8f2196000 	C:\Windows\System32\GDI32.dll
+0x00007ff8f21a0000 - 0x00007ff8f24d6000 	C:\Windows\System32\combase.dll
+0x00007ff8efb30000 - 0x00007ff8efcc8000 	C:\Windows\System32\gdi32full.dll
+0x00007ff8ef4c0000 - 0x00007ff8ef55e000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff8ef860000 - 0x00007ff8ef8e1000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff8e8170000 - 0x00007ff8e817a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff8f1690000 - 0x00007ff8f16be000 	C:\Windows\System32\IMM32.DLL
+0x00007ff8d9270000 - 0x00007ff8d927c000 	C:\Program Files\Java\jdk-18.0.2.1\bin\vcruntime140_1.dll
+0x00007ff8c1820000 - 0x00007ff8c18ad000 	C:\Program Files\Java\jdk-18.0.2.1\bin\msvcp140.dll
+0x00007ff889790000 - 0x00007ff88a3a1000 	C:\Program Files\Java\jdk-18.0.2.1\bin\server\jvm.dll
+0x00007ff8f1da0000 - 0x00007ff8f1da8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ff8d6ee0000 - 0x00007ff8d6ee9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ff8f1c80000 - 0x00007ff8f1cef000 	C:\Windows\System32\WS2_32.dll
+0x00007ff8ec0b0000 - 0x00007ff8ec0d4000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff8ebea0000 - 0x00007ff8ebecd000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ff8ef810000 - 0x00007ff8ef85a000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ff8ef400000 - 0x00007ff8ef411000 	C:\Windows\System32\kernel.appcore.dll
+0x00007ff8d9260000 - 0x00007ff8d926a000 	C:\Program Files\Java\jdk-18.0.2.1\bin\jimage.dll
+0x00007ff8eeb60000 - 0x00007ff8eed54000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff8ee450000 - 0x00007ff8ee47a000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff8d7830000 - 0x00007ff8d783e000 	C:\Program Files\Java\jdk-18.0.2.1\bin\instrument.dll
+0x00007ff8c7640000 - 0x00007ff8c7665000 	C:\Program Files\Java\jdk-18.0.2.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-18.0.2.1\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1556_none_9e7e372fe45e41d5;C:\Program Files\Java\jdk-18.0.2.1\bin\server
+
+VM Arguments:
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\lib\idea_rt.jar=60346:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 com.example.AppEcommerce.AppEcommerceApplicationTests
+java_class_path (initial): C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\platform\junit-platform-launcher\1.8.2\junit-platform-launcher-1.8.2.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\lib\idea_rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\plugins\junit\lib\junit5-rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\plugins\junit\lib\junit-rt.jar;F:\Work\AppEcommerce\target\test-classes;F:\Work\AppEcommerce\target\classes;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\2.7.4\spring-boot-starter-data-mongodb-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter\2.7.4\spring-boot-starter-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot\2.7.4\spring-boot-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.4\spring-boot-autoconfigure-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.7.4\spring-boot-starter-logging-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\ch\qos\logback\logback-classic\1.2.11\logback-classic-1.2.11.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\ch\qos\logback\logback-core\1.2.11\logback-core-1.2.11.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.17.2\log4j-to-slf4j-2.17.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apache\logging\log4j\log4j-api\2.17.2\log4j-api-2.17.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\slf4j\jul-to-slf4j\1.7.36\jul-to-slf4j-1.7.36.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\yaml\snakeyaml\1.30\snakeyaml-1.30.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mongodb\mongodb-driver-sync\4.6.1\mongodb-driver-sync-4.6.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mongodb\bson\4.6.1\bson-4.6.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mongodb\mongodb-driver-core\4.6.1\mongodb-driver-core-4.6.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mongodb\bson-record-codec\4.6.1\bson-record-codec-4.6.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\data\spring-data-mongodb\3.4.3\spring-data-mongodb-3.4.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-tx\5.3.23\spring-tx-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\data\spring-data-commons\2.7.3\spring-data-commons-2.7.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-security\2.7.4\spring-boot-starter-security-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-aop\5.3.23\spring-aop-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\security\spring-security-config\5.7.3\spring-security-config-5.7.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\security\spring-security-web\5.7.3\spring-security-web-5.7.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.7.4\spring-boot-starter-web-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.7.4\spring-boot-starter-json-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.13.4\jackson-datatype-jdk8-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.4\jackson-datatype-jsr310-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.13.4\jackson-module-parameter-names-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.7.4\spring-boot-starter-tomcat-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.65\tomcat-embed-core-9.0.65.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.65\tomcat-embed-el-9.0.65.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.65\tomcat-embed-websocket-9.0.65.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-web\5.3.23\spring-web-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-webmvc\5.3.23\spring-webmvc-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\io\jsonwebtoken\jjwt\0.9.1\jjwt-0.9.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.4\jackson-databind-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.4\jackson-annotations-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.4\jackson-core-2.13.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-starter-test\2.7.4\spring-boot-starter-test-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-test\2.7.4\spring-boot-test-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\2.7.4\spring-boot-test-autoconfigure-2.7.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\jayway\jsonpath\json-path\2.7.0\json-path-2.7.0.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\net\minidev\json-smart\2.4.8\json-smart-2.4.8.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\net\minidev\accessors-smart\2.4.8\accessors-smart-2.4.8.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\ow2\asm\asm\9.1\asm-9.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\assertj\assertj-core\3.22.0\assertj-core-3.22.0.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mockito\mockito-core\4.5.1\mockito-core-4.5.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\net\bytebuddy\byte-buddy\1.12.17\byte-buddy-1.12.17.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.17\byte-buddy-agent-1.12.17.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\mockito\mockito-junit-jupiter\4.5.1\mockito-junit-jupiter-4.5.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-core\5.3.23\spring-core-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-jcl\5.3.23\spring-jcl-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-test\5.3.23\spring-test-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\xmlunit\xmlunit-core\2.9.0\xmlunit-core-2.9.0.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\security\spring-security-test\5.7.3\spring-security-test-5.7.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\hibernate\validator\hibernate-validator\6.2.5.Final\hibernate-validator-6.2.5.Final.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\jakarta\validation\jakarta.validation-api\2.0.2\jakarta.validation-api-2.0.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\jboss\logging\jboss-logging\3.4.3.Final\jboss-logging-3.4.3.Final.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\security\spring-security-core\6.0.2\spring-security-core-6.0.2.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\security\spring-security-crypto\5.7.3\spring-security-crypto-5.7.3.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-beans\5.3.23\spring-beans-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-context\5.3.23\spring-context-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\org\springframework\spring-expression\5.3.23\spring-expression-5.3.23.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\io\micrometer\micrometer-observation\1.10.4\micrometer-observation-1.10.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\io\micrometer\micrometer-commons\1.10.4\micrometer-commons-1.10.4.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\rihab.DESKTOP-BQ1736K\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2118123520                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2118123520                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-18.0.2.1\bin
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jre1.8.0_351\bin;C:\Program Files\PuTTY\;C:\xampp\php;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\rihab.DESKTOP-BQ1736K\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\rihab.DESKTOP-BQ1736K\AppData\Local\Programs\Python\Python38\;C:\Users\rihab.DESKTOP-BQ1736K\AppData\Local\Microsoft\WindowsApps;E:\JetBrains\PyCharm Community Edition 2022.3\bin;;D:\Microsoft VS Code\bin;C:\Users\rihab.DESKTOP-BQ1736K\AppData\Roaming\npm;C:\Users\rihab.DESKTOP-BQ1736K\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\rihab.DESKTOP-BQ1736K\Desktop\mongosh-1.8.0-win32-x64\bin;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;
+USERNAME=rihab
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 18362 (10.0.18362.1500)
+OS uptime: 2 days 2:54 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9 microcode 0xde, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 8072M (731M free)
+TotalPageFile size 10072M (AvailPageFile size 126M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 52M, peak: 180M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (18.0.2.1+1-1) for windows-amd64 JRE (18.0.2.1+1-1), built on Aug 16 2022 01:46:33 by "mach5one" with MS VC++ 16.8 / 16.9 (VS2019)
+
+END.
